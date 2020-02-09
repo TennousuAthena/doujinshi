@@ -1,4 +1,11 @@
-
+<!------------------
+ ____             ______
+| __ )  ___ _ __ |__  (_)
+|  _ \ / _ \ '_ \  / /| |
+| |_) |  __/ | | |/ /_| |
+|____/ \___|_| |_/____|_|
+阅本无数
+--------------------->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -68,13 +75,19 @@
 </nav>
 
 <main role="main" class="container">
-
+    <div class="p-3 mb-2 bg-warning text-white">警告！无法建立信道以连接里世界，请尝试投喂令牌（token）</div>
     <div class="starter">
         <h1>轻松阅本</h1>
         <p class="lead">这是可以在任何地方轻松阅读<b>本子</b>的工具，好孩子千万不要用哦！坏孩子也不行！</p>
     </div>
 
 </main><!-- /.container -->
+
+<footer class="footer mt-auto py-3 fixed-bottom">
+    <div class="container">
+        <span class="text-muted"><a href ="https://github.com/qcminecraft/doujinshi" target="_blank">Github</a> | By <a href="https://nyaruko.love" target="_blank">QCTech</a> | 本站不提供任何图片上传服务，所有内容均来自其他站点所提供的公开引用资源 </span>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
