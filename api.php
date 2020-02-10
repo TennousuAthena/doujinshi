@@ -7,6 +7,7 @@
  * |____/ \___|_| |_/____|_|
  * 阅本无数
  */
+require_once ("auth.php");
 require_once ("libs.php");
 require_once ("config.php");
 $mode = @$_GET['mode'] ? $_GET['mode'] : "";
@@ -30,10 +31,12 @@ switch ($mode){
     case 'activeCode':{
         header("Content-Type: text/json; charset=utf-8");
         $code = json_decode(base64_decode($_GET['code']));
-        var_dump($code);
+        if($code === null){
+            die(json_encode(["success"=>0, "errMsg"=>"神秘代码无效"]));
+        }
         switch ($code->m){
-            case 't':{
-                setcookie("Token", $code->t, time()+3600, "/");
+            case 'a':{
+
             }
         }
         break;

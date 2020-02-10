@@ -8,8 +8,8 @@
  * 阅本无数
  */
 require_once ("libs.php");
-//判断是否在Shell中
 $dataFileName = __DIR__ . DIRECTORY_SEPARATOR. "data" . DIRECTORY_SEPARATOR . "keys.php";
 if(!file_exists($dataFileName)) {
-    file_put_contents($dataFileName, "<?php \n \$KEYS = \n[\n   '" . generateRandomString(32) . "'\n];");
+    file_put_contents($dataFileName, "<?php \n//默认会生成一个KEY，您可以任意添加KEY\n \$KEYS = \n[\n   '" . generateRandomString(16) . "' => '" . generateRandomString(32) . "'\n];");
 }
+require_once ("data/keys.php");
