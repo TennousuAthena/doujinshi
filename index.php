@@ -1,5 +1,6 @@
 <?php
 require_once ("libs.php");
+require_once ("auth.php");
 ?>
 <!------------------
  ____             ______
