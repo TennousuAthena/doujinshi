@@ -27,5 +27,8 @@ switch ($mode){
         }
         exit($benzi);
     }
-
+    case 'activeCode':{
+        header("Content-Type: text/json; charset=utf-8");
+        echo json_encode(["success"=>0, "errMsg"=>"没写完呢"]);
+    }
 }

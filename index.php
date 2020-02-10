@@ -1,3 +1,6 @@
+<?php
+require_once ("libs.php");
+?>
 <!------------------
  ____             ______
 | __ )  ___ _ __ |__  (_)
@@ -67,10 +70,10 @@
                 <a class="nav-link" href="/">首页</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="输入神秘代码ヾ(•ω•`)o" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0">提交</button>
-        </form>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" id="code" required placeholder="输入神秘代码ヾ(•ω•`)o" aria-label="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" id="code-submit">提交</button>
+        </div>
     </div>
 </nav>
 
@@ -83,14 +86,35 @@
 
 </main><!-- /.container -->
 
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="msgTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="msgTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="msg"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="footer mt-auto py-3 fixed-bottom">
     <div class="container">
         <span class="text-muted"><a href ="https://github.com/qcminecraft/doujinshi" target="_blank">Github</a> | By <a href="https://nyaruko.love" target="_blank">QCTech</a> | 本站不提供任何图片上传服务，所有内容均来自其他站点所提供的公开引用资源 </span>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="assets/js/benzi.js" type="text/javascript"></script>
 </body>
 </html>
