@@ -34,9 +34,23 @@ switch ($mode){
         if($code === null){
             die(json_encode(["success"=>0, "errMsg"=>"神秘代码无效"]));
         }
-        switch ($code->m){
+        $Method = @$code->m;
+        $ExpireTime = @$code->ET;
+        $userPK = @$code->PK;
+        $userSK = @$code->SK;
+        switch ($Method){
             case 'a':{
-
+                if($ExpireTime < time()) die(json_encode(["success"=>0, "errMsg"=>"Token已过期"]));
+                if(!array_key_exists($userPK, $KEYS)) die(json_encode(["success"=>0, "errMsg"=>"Token不存在"]));
+                $userResult = cauclateAuthCode($userPK, $userSK, $ExpireTime);
+                $actualResult = cauclateAuthCode($userPK, $KEYS[$userPK], $ExpireTime);
+                if($userResult === $actualResult){
+                    setcookie("PK", $userPK, $ExpireTime, "/");
+                    setcookie("UUID", $actualResult, $ExpireTime, "/");
+                    die(json_encode(["success"=>1, "errMsg"=>"连接里世界成功！"]));
+                }else{
+                    die(json_encode(["success"=>0, "errMsg"=>"Token验证失败"]));
+                }
             }
         }
         break;

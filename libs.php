@@ -20,6 +20,6 @@ function generateRandomString($length = 16) {
     }
     return $randomString;
 }
-function cauclateAuthCode($PP = "", $expireTime = 0){
-
+function cauclateAuthCode($PK = "", $SK = "", $expireTime = 0){
+    return hash("sha256", $PK . $SK . '-' . $expireTime);
 }
