@@ -29,6 +29,17 @@ switch ($mode){
     }
     case 'activeCode':{
         header("Content-Type: text/json; charset=utf-8");
-        echo json_encode(["success"=>0, "errMsg"=>"没写完呢"]);
+        $code = json_decode(base64_decode($_GET['code']));
+        var_dump($code);
+        switch ($code->m){
+            case 't':{
+                setcookie("Token", $code->t, time()+3600, "/");
+            }
+        }
+        break;
+    }
+    default : {
+        header("Content-Type: text/json; charset=utf-8");
+        die(json_encode(["success"=>0, "errMsg"=>"Unknown method"]));
     }
 }
