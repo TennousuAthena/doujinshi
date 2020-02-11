@@ -33,6 +33,20 @@ $(document).ready(function() {
         let pk = $("#input-pk").val(),
             sk = $("#input-sk").val(),
             et = $("#input-expire").val();
+
+        if (pk === "" || sk === "" || et === ""){
+            $("#msgTitle").text("错误");
+            $("#msg").text("信息好像没填全啊");
+            $('#Modal').modal('show');
+            return false;
+        }
+
+        if(!/^[0-9]*$/.test(et)){
+            $("#msgTitle").text("错误");
+            $("#msg").text("有效时间必须是数字！");
+            $('#Modal').modal('show');
+            return false;
+        }
         let result = {
             "m" : "a",
             "ET": Math.round(new Date() / 1000) + et,
