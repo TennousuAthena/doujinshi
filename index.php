@@ -1,6 +1,7 @@
 <?php
 require_once ("libs.php");
 require_once ("auth.php");
+$mode = @$_GET['mode'];
 ?>
 <!------------------
  ____             ______
@@ -24,14 +25,6 @@ require_once ("auth.php");
 
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
@@ -70,6 +63,9 @@ require_once ("auth.php");
             <li class="nav-item active">
                 <a class="nav-link" href="/">首页</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/?mode=generateToken">Token</a>
+            </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" id="code" required placeholder="输入神秘代码ヾ(•ω•`)o" aria-label="Search">
@@ -78,18 +74,45 @@ require_once ("auth.php");
     </div>
 </nav>
 
-<main role="main" class="container">
-    <?php if(!$IS_LOGIN): ?>
-        <div class="p-3 mb-2 bg-warning text-white">警告！无法建立信道以连接里世界，请尝试投喂令牌（token）</div>
-    <?php else: ?>
-        <div class="p-3 mb-2 bg-success text-white">连接里世界成功！</div>
-    <?php endif; ?>
-    <div class="starter">
-        <h1>轻松阅本</h1>
-        <p class="lead">这是可以在任何地方轻松阅读<b>本子</b>的工具，好孩子千万不要用哦！坏孩子也不行！</p>
-    </div>
+    <?php switch ($mode){
+        case '':{ ?>
+    <main role="main" class="container">
+            <?php if(!$IS_LOGIN): ?>
+                <div class="p-3 mb-2 bg-warning text-white">警告！无法建立信道以连接里世界，请尝试<a href="?mode=generateToken"> 投喂令牌（token）</a></div>
+            <?php else: ?>
+                <div class="p-3 mb-2 bg-success text-white">连接里世界成功！</div>
+            <?php endif; ?>
+            <div class="starter">
+                <h1>轻松阅本</h1>
+                <p class="lead">这是可以在任何地方轻松阅读<b>本子</b>的工具，好孩子千万不要用哦！坏孩子也不行！</p>
+    </main><!-- /.container -->
+    <?php break; }
+        case 'generateToken':{?>
+    <main role="main" class="container">
+        <div id="form">
+            <div class="form-group">
+                <label for="input-pk">PK</label>
+                <input type="text" class="form-control" id="input-pk" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="input-sk">SK</label>
+                <input type="text" class="form-control" id="input-sk" placeholder="">
+            </div>
 
-</main><!-- /.container -->
+            <label for="input-expire">SK</label>
+            <div class="input-group">
+                <input id="input-expire" type="text" class="form-control" placeholder="有效期（天）"  aria-describedby="days">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="days">天</span>
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-primary btn-lg btn-block" id="token-submit">提交</button>
+        </div>
+    </main>
+    <?php }
+    }?>
+
 
 <!-- Modal -->
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="msgTitle" aria-hidden="true">
