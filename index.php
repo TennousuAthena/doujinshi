@@ -99,7 +99,7 @@ $mode = @$_GET['mode'];
                 <input type="text" class="form-control" id="input-sk" placeholder="">
             </div>
 
-            <label for="input-expire">SK</label>
+            <label for="input-expire">有效时间</label>
             <div class="input-group">
                 <input id="input-expire" type="text" class="form-control" placeholder="有效期（天）"  aria-describedby="days">
                 <div class="input-group-append">
@@ -108,6 +108,10 @@ $mode = @$_GET['mode'];
             </div>
             <br />
             <button class="btn btn-primary btn-lg btn-block" id="token-submit">提交</button>
+            <br />
+
+            <label for="token-result">结果</label>
+            <textarea class="form-control" id="token-result" readonly placeholder="生成的神秘代码会在这里哦~"></textarea>
         </div>
     </main>
     <?php }

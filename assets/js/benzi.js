@@ -28,4 +28,19 @@ $(document).ready(function() {
             });
         }
     });
+
+    $("#token-submit").click(function () {
+        let pk = $("#input-pk").val(),
+            sk = $("#input-sk").val(),
+            et = $("#input-expire").val();
+        let result = {
+            "m" : "a",
+            "ET": Math.round(new Date() / 1000) + et,
+            "PK": pk,
+            "SK": sk
+        };
+        result = btoa(JSON.stringify(result));
+        result = result.split('').reverse().join('');
+        $("#token-result").text(result);
+    })
 });
