@@ -30,7 +30,7 @@ switch ($mode){
     }
     case 'activeCode':{
         header("Content-Type: text/json; charset=utf-8");
-        $code = json_decode(base64_decode($_GET['code']));
+        $code = json_decode(base64_decode(strrev($_GET['code'])));
         if($code === null){
             die(json_encode(["success"=>0, "errMsg"=>"神秘代码无效"]));
         }
