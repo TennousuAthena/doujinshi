@@ -47,6 +47,7 @@ switch ($mode){
                 if($userResult === $actualResult){
                     setcookie("PK", $userPK, $ExpireTime, "/");
                     setcookie("UUID", $actualResult, $ExpireTime, "/");
+                    setcookie("ExpireTime", $ExpireTime, $ExpireTime , "/");
                     die(json_encode(["success"=>1, "errMsg"=>"连接里世界成功！"]));
                 }else{
                     die(json_encode(["success"=>0, "errMsg"=>"Token验证失败"]));

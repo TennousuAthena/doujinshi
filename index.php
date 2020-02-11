@@ -79,7 +79,11 @@ require_once ("auth.php");
 </nav>
 
 <main role="main" class="container">
-    <div class="p-3 mb-2 bg-warning text-white">警告！无法建立信道以连接里世界，请尝试投喂令牌（token）</div>
+    <?php if(!$IS_LOGIN): ?>
+        <div class="p-3 mb-2 bg-warning text-white">警告！无法建立信道以连接里世界，请尝试投喂令牌（token）</div>
+    <?php else: ?>
+        <div class="p-3 mb-2 bg-success text-white">连接里世界成功！</div>
+    <?php endif; ?>
     <div class="starter">
         <h1>轻松阅本</h1>
         <p class="lead">这是可以在任何地方轻松阅读<b>本子</b>的工具，好孩子千万不要用哦！坏孩子也不行！</p>
@@ -101,7 +105,7 @@ require_once ("auth.php");
                 <p id="msg"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了</button>
+                <button type="button" id="button-dismiss" class="btn btn-primary" data-dismiss="modal">我知道了</button>
             </div>
         </div>
     </div>

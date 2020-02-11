@@ -19,6 +19,11 @@ $(document).ready(function() {
                     $("#msg").text(result.errMsg);
                     $('#Modal').modal('show');
                     console.log(result);
+                    if(result.success === 1){
+                        $("#button-dismiss").click(function () {
+                            window.location.reload();
+                        })
+                    }
                 }, cache: false
             });
         }
